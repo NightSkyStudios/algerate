@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="" alt="">
+<form action="" method="post">
+{% csrf_token %}
+{% for i in rate %}
+    <input type="submit" id="rate-{{ i }}" value="{{ i }}">
+{% endfor %}
+</form>
+</body>
+</html>

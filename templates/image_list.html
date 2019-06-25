@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for img in images %}
+    <a href="{% url 'post' img.unique_link %}">{{ img.pk }}</a>
+{% endfor %}
+</body>
+</html>

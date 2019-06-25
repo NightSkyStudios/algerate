@@ -3,25 +3,55 @@ body {
   font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
-header {
-  padding: 1em 0;
-  height: 7vh;
-  background-color: gray;
+:root {
+  --bacground-pink: #fb7bc6;
+  --background-yellow: #ee941a;
+  --accent-yellow: #ffd800;
 }
-header h1 {
+
+.round-button {
+  padding: 1em 0.5em;
+  border-radius: 50px;
+  background-color: var(--accent-yellow);
+}
+
+.navbar {
+  background: transparent;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-content: center;
+  height: 7vh;
+  width: 100%;
+  padding: 1em 1em 0 0;
+}
+.navbar span {
+  color: white;
+  font-weight: bold;
   position: relative;
   left: 0;
-  margin: 0;
+  margin: 0 0 0 1em;
   padding: 0;
   height: 100%;
+  width: fit-content;
+  font-size: 2em;
+  flex-basis: 70%;
 }
-header .navbar {
-  position: absolute;
-  right: 0;
-  display: flex;
-  height: 100%;
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin: 1em;
+}
+
+.content {
+  background: linear-gradient(-45deg, var(--background-yellow), var(--bacground-pink));
+  height: 100vh;
 }
 
 /*# sourceMappingURL=styles.css.map */
