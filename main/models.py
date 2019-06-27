@@ -6,6 +6,8 @@ import uuid
 class PostedImage(models.Model):
     image = models.ImageField("Image", upload_to='img')
     unique_link = models.UUIDField(default=uuid.uuid4, editable=False)
+    isVerified = models.BooleanField('Verified', default=False)
+    sex = models.CharField(max_length=225, choices=[('Male', 'Male'), ('Female', 'Female')])
 
     def __str__(self):
         return self.unique_link.__str__()
