@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Verified page</title>
+</head>
+<body>
+<div>
+    {% for item in image %}
+    <img style="height: 400px; width: 400px;" src="{{ item.image.url }}" alt="">
+    <p>{{ item.sex }}</p>
+    <form method="post">
+        {% csrf_token %}
+  <button value="{{ item.id }}" name="verified" style="background: #00ff13; margin-right: 20px;">Accept</button>
+  <button  value="{{ item.id }}" name="delete_image" style="background: red;" >Decline</button>
+        </form>
+    {% endfor %}
+</div>
+</body>
+</html>

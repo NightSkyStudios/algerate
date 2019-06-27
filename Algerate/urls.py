@@ -25,6 +25,8 @@ urlpatterns = [
     path('rate/', views.rate, name='rate'),
     path('image_list/', views.images_list, name='image_list'),
     path('post/<uuid>', views.image_details, name='post'),
+    path('verified', views.verified_page, name='verified'),
+
 ]
 
 if settings.DEBUG:
