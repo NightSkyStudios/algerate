@@ -4,7 +4,7 @@ body {
     font-family: "Montserrat", sans-serif;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    //overflow-x: hidden;
 }
 
 @import "variables";
@@ -53,11 +53,13 @@ body {
     }
 }
 
-
 .content {
     //Style
     background: linear-gradient(-45deg, var(--background-yellow), var(--bacground-pink));
-
-
     height: 100vh;
+}
+
+#rating-image{
+    height: 500px;
+    width: 500px;
 }

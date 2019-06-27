@@ -7,15 +7,16 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-{% include "svg/background.html" %}
-<header>
-<h1>Algerate.com</h1>
-    <div class="navbar">
-        <a href="">Rate</a>
-        <a href="">Submit a photo</a>
-        <a href="">About</a>
-        <a href="">Contact</a>
-    </div>
-</header>
+
+<div class="navbar">
+    <span>Algerate.com</span>
+    <a href="">Rate</a>
+    <a href="">Submit a photo</a>
+    <a href="">About</a>
+    <a class="" href="">Contact</a>
+</div>
+<div class="content">
+{% include 'svg/background.html' %}
+</div>
 </body>
 </html>

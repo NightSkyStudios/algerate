@@ -26,6 +26,7 @@ urlpatterns = [
     path('image_list/', views.images_list, name='image_list'),
     path('post/<uuid>', views.image_details, name='post'),
     path('verified', views.verified_page, name='verified'),
+    path('get_image', views.get_image, name='get_image'),
 
 ]
 

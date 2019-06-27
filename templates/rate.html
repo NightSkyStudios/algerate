@@ -1,16 +1,22 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-<img src="" alt="">
+<img id="rating-image" src="" alt="">
 <form action="" method="post">
 {% csrf_token %}
+    <input id="check-input" type="hidden" name="check" value="">
 {% for i in rate %}
     <input type="submit" id="rate-{{ i }}" value="{{ i }}">
 {% endfor %}
 </form>
+<button onclick="loadImage()">get image</button>
+
+<script src="{% static 'js/rating.js' %}"></script>
 </body>
 </html>

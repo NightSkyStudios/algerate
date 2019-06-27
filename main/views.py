@@ -1,5 +1,10 @@
 from django.shortcuts import render, HttpResponseRedirect
 from .models import *
+from random import randint
+from django.http import HttpResponse
+from Algerate import settings
+
+import datetime
 
 
 # Create your views here.
@@ -8,9 +13,8 @@ def index(request):
 
 
 def rate(request):
-    print(request.COOKIES['csrftoken'])
     if request.POST:
-        print(request.COOKIES['csrftoken'])
+        print(request.COOKIES['uuid'])
 
     ctx = {'rate': range(1, 11)}
 
@@ -40,21 +44,32 @@ def verified_page(request):
     image = PostedImage.objects.filter(isVerified=False)
 
     if request.method == "POST":
-       if request.POST.get('delete_image') is not None:
-           id = request.POST.get('delete_image')
-           PostedImage.objects.get(pk=id).delete()
-           return HttpResponseRedirect('verified')
-
+        if request.POST.get('delete_image') is not None:
+            id = request.POST.get('delete_image')
+            PostedImage.objects.get(pk=id).delete()
+            return HttpResponseRedirect('verified')
 
     if request.method == "POST":
-       if request.POST.get('verified') is not None:
+        if request.POST.get('verified') is not None:
             id = request.POST.get('verified')
             item = PostedImage.objects.get(pk=id)
             item.isVerified = True
             item.save()
             return HttpResponseRedirect('verified')
 
-
     ctx = {'image': image}
 
     return render(request, 'verified_page.html', ctx)
+
+
+def get_image(request):
+    images = PostedImage.objects.all()
+    id = randint(0, len(images) - 1)
+    print(id)
+    image = images[id]
+
+    response = HttpResponse('cookie')
+    response.set_cookie('uuid', image.unique_link.__str__())
+    print(request.COOKIES['uuid'])
+
+    return HttpResponse(image.image.url)
