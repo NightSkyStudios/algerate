@@ -27,6 +27,7 @@ urlpatterns = [
     path('post/<uuid>', views.image_details, name='post'),
     path('verified', views.verified_page, name='verified'),
     path('get_image', views.get_image, name='get_image'),
+    path('rate_image/<rate>', views.rate_image, name='rate_image'),
 
 ]
 

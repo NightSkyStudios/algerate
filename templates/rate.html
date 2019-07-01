@@ -8,15 +8,12 @@
 </head>
 <body>
 <img id="rating-image" src="" alt="">
-<form action="" method="post">
-{% csrf_token %}
-    <input id="check-input" type="hidden" name="check" value="">
-{% for i in rate %}
-    <input type="submit" id="rate-{{ i }}" value="{{ i }}">
-{% endfor %}
-</form>
-<button onclick="loadImage()">get image</button>
 
+{% for i in rate %}
+    <button id="rate-{{ i }}" value="{{ i }}" onclick="rateButton(this)">{{ i }}</button>
+{% endfor %}
+
+<button onclick="loadImage()">get image</button>
 <script src="{% static 'js/rating.js' %}"></script>
 </body>
 </html>

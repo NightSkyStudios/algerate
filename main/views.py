@@ -10,9 +10,6 @@ def index(request):
 
 
 def rate(request):
-    if request.POST:
-        chached_uuid = request.session.get('uuid')
-        print(chached_uuid)
 
     ctx = {'rate': range(1, 11)}
 
@@ -21,7 +18,17 @@ def rate(request):
 
 def image_details(request, uuid):
     image = PostedImage.objects.get(unique_link=uuid)
-    ctx = {'image': image}
+    ratings = Rating.objects.filter(ratedImage=image)
+    count = len(ratings)
+    s = 0
+    for r in ratings:
+        s += r.rating
+    try:
+        avg = s / count
+    except ZeroDivisionError:
+        avg = 'not rated yet'
+    ctx = {'image': image,
+           'avg': avg}
 
     return render(request, 'image_details.html', ctx)
 
@@ -41,7 +48,6 @@ def verified_page(request):
             PostedImage.objects.get(pk=id).delete()
             return HttpResponseRedirect('verified')
 
-    if request.method == "POST":
         if request.POST.get('verified') is not None:
             id = request.POST.get('verified')
             item = PostedImage.objects.get(pk=id)
@@ -57,9 +63,19 @@ def verified_page(request):
 def get_image(request):
     images = PostedImage.objects.all()
     id = randint(0, len(images) - 1)
-    print(id)
     image = images[id]
 
     request.session.__setitem__('uuid', image.unique_link.__str__())
 
     return HttpResponse(image.image.url)
+
+
+def rate_image(request, rate):
+    if int(rate) in range(1, 11):
+        image = PostedImage.objects.get(unique_link=request.session.get('uuid'))
+        request.session.__delitem__('uuid')
+        Rating.objects.create(ratedImage=image, rating=rate)
+    else:
+        ...
+
+    return HttpResponse('')
