@@ -6,7 +6,7 @@ body {
 }
 
 :root {
-  --bacground-pink: #fb7bc6;
+  --background-pink: #fb7bc6;
   --background-yellow: #ee941a;
   --accent-yellow: #ffd800;
   --navbar-heigth: 7vh;
@@ -23,6 +23,12 @@ body {
   text-align: center;
   font-size: 1.3em;
   margin: 1em 0;
+  border: 2px var(--accent-yellow) solid;
+  transition: background-color 0.3s, color 0.3s;
+}
+.round-button:hover, .round-button:active {
+  background-color: white;
+  color: var(--accent-yellow);
 }
 
 .content {
@@ -36,27 +42,36 @@ body {
   grid-gap: 2em;
   position: relative;
   grid-template-columns: 1fr 1fr;
-  padding: 2em;
+  padding: 0 2em;
+  height: 100%;
 }
-.content-grid .description {
-  height: fit-content;
-  height: -moz-fit-content;
+.content-grid .description-wraper {
+  height: 100%;
 }
-.content-grid .description span {
+.content-grid .description-wraper .description {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.content-grid .description-wraper .description span {
   position: relative;
   top: 40%;
   color: white;
   font-size: 2em;
 }
-.content-grid .description .button-group {
+.content-grid .description-wraper .description .button-group {
   position: relative;
   top: 40%;
   margin: 2em;
   bottom: 0;
 }
-.content-grid .image {
-  position: absolute;
-  width: 80%;
+.content-grid .image-wraper {
+  height: 100%;
+}
+.content-grid .image-wraper .image {
+  display: block;
+  position: relative;
+  width: 100%;
   margin: auto;
   padding: 0;
   top: 50%;
@@ -65,6 +80,7 @@ body {
 
 .navbar {
   background: transparent;
+  z-index: 20;
   position: absolute;
   left: 0;
   top: 0;

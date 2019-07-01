@@ -11,38 +11,46 @@
         grid-gap: 2em;
         position: relative;
         grid-template-columns: 1fr 1fr;
-        padding: 2em;
+        padding: 0 2em;
+        height: 100%;
 
-        .description {
+        .description-wraper {
+            height: 100%;
 
-            height: fit-content;
-            height: -moz-fit-content;
-            //transform: translate(50%, 50%);
-
-            span {
+            .description {
                 position: relative;
-                top: 40%;
-                color: white;
-                font-size: 2em;
+                top: 50%;
+                transform: translateY(-50%);
 
-            }
+                span {
+                    position: relative;
+                    top: 40%;
+                    color: white;
+                    font-size: 2em;
 
-            .button-group {
-                position: relative;
-                top: 40%;
-                margin: 2em;
-                bottom: 0;
+                }
+
+                .button-group {
+                    position: relative;
+                    top: 40%;
+                    margin: 2em;
+                    bottom: 0;
+                }
             }
         }
 
-        .image {
-            position: absolute;
-            width: 80%;
-            margin: auto;
-            padding: 0;
-            top: 50%;
-            transform: translateY(-50%);
-        }
+        .image-wraper {
+            height: 100%;
 
+            .image {
+                display: block;
+                position: relative;
+                width: 100%;
+                margin: auto;
+                padding: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
     }
 }
