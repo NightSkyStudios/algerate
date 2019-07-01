@@ -2,9 +2,6 @@ from django.shortcuts import render, HttpResponseRedirect
 from .models import *
 from random import randint
 from django.http import HttpResponse
-from Algerate import settings
-
-import datetime
 
 
 # Create your views here.
@@ -14,17 +11,12 @@ def index(request):
 
 def rate(request):
     if request.POST:
-        print(request.COOKIES['uuid'])
+        chached_uuid = request.session.get('uuid')
+        print(chached_uuid)
 
     ctx = {'rate': range(1, 11)}
 
     return render(request, 'rate.html', ctx)
-
-
-def get_image(request, hash):
-    ctx = {}
-
-    return render(request, 'image_tag.html', ctx)
 
 
 def image_details(request, uuid):
@@ -68,8 +60,6 @@ def get_image(request):
     print(id)
     image = images[id]
 
-    response = HttpResponse('cookie')
-    response.set_cookie('uuid', image.unique_link.__str__())
-    print(request.COOKIES['uuid'])
+    request.session.__setitem__('uuid', image.unique_link.__str__())
 
     return HttpResponse(image.image.url)
