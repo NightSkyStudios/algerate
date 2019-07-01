@@ -1,0 +1,48 @@
+.content {
+    //Style
+    //background: {% %};
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+
+    &-grid {
+        display: grid;
+        grid-gap: 2em;
+        position: relative;
+        grid-template-columns: 1fr 1fr;
+        padding: 2em;
+
+        .description {
+
+            height: fit-content;
+            height: -moz-fit-content;
+            //transform: translate(50%, 50%);
+
+            span {
+                position: relative;
+                top: 40%;
+                color: white;
+                font-size: 2em;
+
+            }
+
+            .button-group {
+                position: relative;
+                top: 40%;
+                margin: 2em;
+                bottom: 0;
+            }
+        }
+
+        .image {
+            position: absolute;
+            width: 80%;
+            margin: auto;
+            padding: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+    }
+}

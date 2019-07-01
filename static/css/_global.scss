@@ -1,6 +1,13 @@
-.round-button{
-    padding: 1em .5em;
+.round-button {
 
-    border-radius: 50px ;
-    background-color:var(--accent-yellow) ;
+    border-radius: 50px;
+    background-color: var(--accent-yellow);
+    color: white;
+    text-decoration: none;
+    padding: 0.2em 0.5em;
+    min-width: 200px;
+    display: inline-block;
+    text-align: center;
+    font-size: 1.3em;
+    margin: 1em 0;
 }

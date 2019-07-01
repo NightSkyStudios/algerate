@@ -9,12 +9,58 @@ body {
   --bacground-pink: #fb7bc6;
   --background-yellow: #ee941a;
   --accent-yellow: #ffd800;
+  --navbar-heigth: 7vh;
 }
 
 .round-button {
-  padding: 1em 0.5em;
   border-radius: 50px;
   background-color: var(--accent-yellow);
+  color: white;
+  text-decoration: none;
+  padding: 0.2em 0.5em;
+  min-width: 200px;
+  display: inline-block;
+  text-align: center;
+  font-size: 1.3em;
+  margin: 1em 0;
+}
+
+.content {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.content-grid {
+  display: grid;
+  grid-gap: 2em;
+  position: relative;
+  grid-template-columns: 1fr 1fr;
+  padding: 2em;
+}
+.content-grid .description {
+  height: fit-content;
+  height: -moz-fit-content;
+}
+.content-grid .description span {
+  position: relative;
+  top: 40%;
+  color: white;
+  font-size: 2em;
+}
+.content-grid .description .button-group {
+  position: relative;
+  top: 40%;
+  margin: 2em;
+  bottom: 0;
+}
+.content-grid .image {
+  position: absolute;
+  width: 80%;
+  margin: auto;
+  padding: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .navbar {
@@ -26,9 +72,9 @@ body {
   flex-direction: row;
   justify-content: flex-end;
   align-content: center;
-  height: 7vh;
+  height: var(--navbar-heigth);
   width: 100%;
-  padding: 1em 1em 0 0;
+  padding: 1em 0 0 0;
 }
 .navbar span {
   color: white;
@@ -40,17 +86,14 @@ body {
   height: 100%;
   width: fit-content;
   font-size: 2em;
-  flex-basis: 70%;
+  flex-basis: 60%;
 }
 .navbar a {
   color: white;
   text-decoration: none;
+  flex-basis: 15%;
+  text-align: center;
   margin: 1em;
-}
-
-.content {
-  background: linear-gradient(-45deg, var(--background-yellow), var(--bacground-pink));
-  height: 100vh;
 }
 
 #rating-image {

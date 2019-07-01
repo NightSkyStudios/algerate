@@ -9,6 +9,7 @@ body {
 
 @import "variables";
 @import "global";
+@import "index";
 
 .navbar {
     background: transparent;
@@ -21,9 +22,9 @@ body {
     flex-direction: row;
     justify-content: flex-end;
     align-content: center;
-    height: 7vh;
+    height: var(--navbar-heigth);
     width: 100%;
-    padding: 1em 1em 0 0;
+    padding: 1em 0 0 0;
 
     span {
         //Style
@@ -38,25 +39,21 @@ body {
         height: 100%;
         width: fit-content;
         font-size: 2em;
-        flex-basis: 70%;
+        flex-basis: 60%;
     }
 
     a {
         //Style
         color: white;
         text-decoration: none;
+        flex-basis: 15%;
+        text-align: center;
 
         //Position
         //padding: 1em;
         margin: 1em;
 
     }
-}
-
-.content {
-    //Style
-    background: linear-gradient(-45deg, var(--background-yellow), var(--bacground-pink));
-    height: 100vh;
 }
 
 #rating-image{
