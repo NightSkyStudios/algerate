@@ -8,14 +8,9 @@
 </head>
 <body>
 
-<div class="navbar">
-    <span>Algerate.com</span>
-    <a href="">Rate</a>
-    <a href="">Submit a photo</a>
-    <a href="">About</a>
-    <a class="" href="">Contact</a>
-</div>
-<div class="content" style="background-image: url({% static 'img/Background.svg' %})">
+{% include 'navbar.html' %}
+<div class="content" style="/* background-image: url({% static 'img/Background.svg' %}) */">
+    <img src="{% static 'img/Background.svg' %}" alt="">
     <div class="content-grid">
         <div class="description-wraper">
             <div class="description">

@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+{% include 'navbar.html' %}
+<div class="content"
+     style="/* background-image: url({% static 'img/Background.svg' %}) */ background: linear-gradient(45deg, magenta, yellow)">
+    <div class="content-grid">
+        <div class="description-wraper">
+            <div class="description">
+                <h2>Contact</h2>
+                <span>If you have any questions, requests ot business inquiries, please contact us below</span>
+                <form action="" method="post">
+                    <label for="email">Email adress</label>
+                    <input type="text" name="email" id="email">
+                    <label for="name">First and last name</label>
+                    <input type="text" name="name" id="name">
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                </form>
+            </div>
+        </div>
+        <div class="image-wraper">
+            <img src="{% static 'img/index_splash.png' %}" alt="" class="image">
+        </div>
+    </div>
+</div>
+</body>
+</html>

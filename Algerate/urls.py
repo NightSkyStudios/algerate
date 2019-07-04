@@ -23,6 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^$', views.index, name='index'),
     path('rate/', views.rate, name='rate'),
+    path('about/', views.about, name='about'),
+    path('contact/', views.contact, name='contact'),
     path('image_list/', views.images_list, name='image_list'),
     path('post/<uuid>', views.image_details, name='post'),
     path('verified', views.verified_page, name='verified'),

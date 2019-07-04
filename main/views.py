@@ -79,3 +79,13 @@ def rate_image(request, rate):
         ...
 
     return HttpResponse('')
+
+
+def about(request):
+
+    return render(request, 'about.html')
+
+
+def contact(request):
+
+    return render(request, 'contact.html')

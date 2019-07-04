@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+{% include 'navbar.html' %}
+<div class="content" style="/* background-image: url({% static 'img/Background.svg' %}) */ background: linear-gradient(45deg, magenta, yellow)">
+    <div class="content-grid">
+        <div class="description-wraper">
+            <div class="description">
+                <h2>About</h2>
+            <span>This is a website made for entertainment purposes
+            only. The point is that people who want to can submit
+            an honest image of themselves, and get rated for their
+            appearance. Rating the images of others is a
+            surprisingly great time killer, and that is what this
+            website provides. People who submit a photo of them
+            selves need to understand that they might not get the
+            rating they want, and therefore the ratings have to be
+            taken with a grain of salt.
+            <br><br>
+            If you have any further questions, requests or business
+            inquiries, feel free to contact us.</span>
+            </div>
+        </div>
+        <div class="image-wraper">
+            <img src="{% static 'img/index_splash.png' %}" alt="" class="image">
+        </div>
+    </div>
+</div>
+</body>
+</html>
