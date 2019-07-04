@@ -83,11 +83,49 @@ h2 {
   transform: translateY(-50%);
 }
 
+::placeholder {
+  /* Firefox, Chrome, Opera */
+  color: #343434;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #343434;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #343434;
+}
+
 form input[type=text] {
   border-radius: 25px;
+  display: block;
+  height: 1.5em;
+  width: 80%;
+  font-size: 2em;
+  padding: 0 25px;
+  background: grey;
+  border: solid 1px white;
+  color: white;
 }
 form textarea {
+  display: block;
   border-radius: 25px;
+  width: 80%;
+  background: grey;
+  border: solid 1px white;
+  padding: 0 25px;
+  resize: none;
+  color: white;
+  font-size: 2em;
+  font-family: inherit;
+}
+form label {
+  display: block;
+  font-size: 2em;
+  color: white;
+  margin: 0.3em;
 }
 
 .navbar {
