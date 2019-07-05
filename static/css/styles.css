@@ -25,6 +25,7 @@ body {
   margin: 1em 0;
   border: 2px var(--accent-yellow) solid;
   transition: background-color 0.3s, color 0.3s;
+  box-shadow: 7px 14px 50px rgba(64, 21, 89, 0.2);
 }
 .round-button:hover, .round-button:active {
   background-color: white;
@@ -49,6 +50,7 @@ h2 {
   grid-template-columns: 1fr 1fr;
   padding: 0 2em;
   height: 100%;
+  margin-left: 2em;
 }
 .content-grid .description-wraper {
   height: 100%;

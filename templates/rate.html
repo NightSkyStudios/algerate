@@ -7,13 +7,16 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
+{% include 'navbar.html' %}
+<div class="content" style=" background-image: url({% static 'img/Background.png' %});">
 <img id="rating-image" src="" alt="">
 
 {% for i in rate %}
-    <button id="rate-{{ i }}" value="{{ i }}" onclick="rateButton(this)">{{ i }}</button>
+    <button style="margin-top: 120px;" id="rate-{{ i }}" value="{{ i }}" onclick="rateButton(this)">{{ i }}</button>
 {% endfor %}
 
 <button onclick="loadImage()">get image</button>
+</div>
 <script src="{% static 'js/rating.js' %}"></script>
 </body>
 </html>
