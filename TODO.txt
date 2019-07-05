@@ -1,0 +1,14 @@
+Front - end part:
+
+# TODO: footer text *Use at your own risk. We are not responsible for any inconveniences this site may cause.
+# TODO: fix buttons and margins in index page(psd:html = 1:1)
+# TODO: Hover nav links + active link(after element)
+# TODO: Create invisible(hide) button when user login, he can update or verified photo
+# TODO: Error 404 style and template.
+
+Beck - end part:
+
+#TODO: bitly or google shorter links
+#TODO: recapcha on submit photo page
+#TODO: when user is login he can open /verified/ page. If user not login, server will return 404 error(stylized in front-end part)
+ 
