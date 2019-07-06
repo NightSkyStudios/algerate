@@ -89,3 +89,8 @@ def about(request):
 def contact(request):
 
     return render(request, 'contact.html')
+
+
+def submit_photo(request):
+
+    return render(request, 'submit_photo.html')
