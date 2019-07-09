@@ -9,6 +9,10 @@ body {
   --background-pink: #fb7bc6;
   --background-yellow: #ee941a;
   --accent-yellow: #ffbf00;
+  --sex-male: #4963c5;
+  --sex-alt-male: #5e85ff;
+  --sex-female: #c1557e;
+  --sex-alt-female: #ff70a5;
   --navbar-heigth: 7vh;
 }
 
@@ -35,8 +39,29 @@ body {
 h2 {
   font-size: 3em;
   color: white;
+  margin-bottom: 0.2em;
+  margin-top: 0.2em;
 }
 
+h3 {
+  font-size: 2em;
+  color: white;
+  margin-bottom: 0.2em;
+  margin-top: 0.2em;
+}
+
+.fs-2 {
+  font-size: 2em;
+}
+
+.blend-hard-light {
+  mix-blend-mode: hard-light;
+}
+
+ul {
+  color: white;
+  text-decoration: none;
+}
 .content {
   background-position: center;
   background-repeat: no-repeat;
@@ -64,7 +89,7 @@ h2 {
   position: relative;
   top: 40%;
   color: white;
-  font-size: 2em;
+  font-size: 1em;
 }
 .content-grid .description-wraper .description .button-group {
   position: relative;
@@ -84,10 +109,21 @@ h2 {
   top: 50%;
   transform: translateY(-50%);
 }
+.content-grid .submit-photo-image {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.content-grid .submit-photo-image .image-loaded {
+  background: white;
+  min-width: 100%;
+  height: auto;
+}
 
 ::placeholder {
   /* Firefox, Chrome, Opera */
   color: #343434;
+  font-size: 0.5em;
 }
 
 :-ms-input-placeholder {
@@ -100,18 +136,90 @@ h2 {
   color: #343434;
 }
 
-form input[type=text] {
+input[type=text] {
   border-radius: 25px;
   display: block;
   height: 1.5em;
   width: 80%;
-  font-size: 2em;
+  font-size: 1.5em;
   padding: 0 25px;
   background: grey;
   border: solid 1px white;
   color: white;
+  -webkit-box-shadow: 0 0 0 0 transparent;
+  -moz-box-shadow: 0 0 0 0 transparent;
+  box-shadow: 0 0 0 0 transparent;
+  outline: none;
+  transition: box-shadow 0.3s;
 }
-form textarea {
+input[type=text]:focus {
+  -webkit-box-shadow: 0 0 0 2px var(--accent-yellow);
+  -moz-box-shadow: 0 0 0 2px var(--accent-yellow);
+  box-shadow: 0 0 0 2px var(--accent-yellow);
+}
+
+input[type=file] {
+  display: none;
+}
+.file-load-group {
+  border-radius: 25px;
+  display: block;
+  height: 1.5em;
+  width: 80%;
+  font-size: 1.5em;
+  padding: 0 25px;
+  background: grey;
+  border: solid 1px white;
+  color: white;
+  -webkit-box-shadow: 0 0 0 0 transparent;
+  -moz-box-shadow: 0 0 0 0 transparent;
+  box-shadow: 0 0 0 0 transparent;
+  outline: none;
+  transition: box-shadow 0.3s;
+}
+.file-load-group:focus {
+  -webkit-box-shadow: 0 0 0 2px var(--accent-yellow);
+  -moz-box-shadow: 0 0 0 2px var(--accent-yellow);
+  box-shadow: 0 0 0 2px var(--accent-yellow);
+}
+
+.sex-radio-label {
+  display: inline-block;
+  border-radius: 15px;
+  background: white;
+  color: black;
+  cursor: pointer;
+  width: 100px;
+  text-align: center;
+  transition: background-color 0.3s, border-color 0.3s;
+  font-size: 1.2em;
+}
+
+.male {
+  background: var(--sex-male);
+  border: 3px solid var(--sex-male);
+}
+.male:hover {
+  border-color: var(--sex-alt-male);
+}
+
+.female {
+  background: var(--sex-female);
+  border: 3px solid var(--sex-female);
+}
+.female:hover {
+  border-color: var(--sex-alt-female);
+}
+
+#male:checked + .sex-radio-label {
+  background: var(--sex-alt-male);
+}
+
+#female:checked + .sex-radio-label {
+  background: var(--sex-alt-female);
+}
+
+textarea {
   display: block;
   border-radius: 25px;
   width: 80%;
@@ -120,12 +228,24 @@ form textarea {
   padding: 0 25px;
   resize: none;
   color: white;
-  font-size: 2em;
+  font-size: 1.5em;
   font-family: inherit;
+  font-weight: inherit;
+  -webkit-box-shadow: 0 0 0 0 transparent;
+  -moz-box-shadow: 0 0 0 0 transparent;
+  box-shadow: 0 0 0 0 transparent;
+  outline: none;
+  transition: box-shadow 0.3s;
 }
-form label {
+textarea:focus {
+  -webkit-box-shadow: 0 0 0 2px var(--accent-yellow);
+  -moz-box-shadow: 0 0 0 2px var(--accent-yellow);
+  box-shadow: 0 0 0 2px var(--accent-yellow);
+}
+
+.basic-label {
   display: block;
-  font-size: 2em;
+  font-size: 1.3em;
   color: white;
   margin: 0.3em;
 }

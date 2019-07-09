@@ -1,0 +1,156 @@
+//placeholder texts
+::placeholder { /* Firefox, Chrome, Opera */
+    color: #343434;
+    font-size: 0.5em;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #343434;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #343434;
+}
+
+//end
+
+//Input textfield
+input[type=text] {
+    border-radius: 25px;
+    display: block;
+    height: 1.5em;
+    width: 80%;
+    font-size: 1.5em;
+    padding: 0 25px;
+    background: grey;
+    border: solid 1px white;
+    color: white;
+
+    -webkit-box-shadow: 0 0 0 0 transparent;
+    -moz-box-shadow: 0 0 0 0 transparent;
+    box-shadow: 0 0 0 0 transparent;
+
+    outline: none;
+
+    transition: box-shadow .3s;
+
+    &:focus {
+        -webkit-box-shadow: 0 0 0 2px var(--accent-yellow);
+        -moz-box-shadow: 0 0 0 2px var(--accent-yellow);
+        box-shadow: 0 0 0 2px var(--accent-yellow);
+    }
+}
+
+input[type=file]{
+    display: none;
+
+    & + label{
+
+    }
+}
+
+//styling file loading button
+.file-load-group {
+    border-radius: 25px;
+    display: block;
+    height: 1.5em;
+    width: 80%;
+    font-size: 1.5em;
+    padding: 0 25px;
+    background: grey;
+    border: solid 1px white;
+    color: white;
+
+    -webkit-box-shadow: 0 0 0 0 transparent;
+    -moz-box-shadow: 0 0 0 0 transparent;
+    box-shadow: 0 0 0 0 transparent;
+
+    outline: none;
+
+    transition: box-shadow .3s;
+
+    &:focus {
+        -webkit-box-shadow: 0 0 0 2px var(--accent-yellow);
+        -moz-box-shadow: 0 0 0 2px var(--accent-yellow);
+        box-shadow: 0 0 0 2px var(--accent-yellow);
+    }
+}
+
+//base radio button labels for sex radio buttons (submit_photo.html)
+.sex-radio-label {
+    display: inline-block;
+    border-radius: 15px;
+    background: white;
+    color: black;
+    cursor: pointer;
+    width: 100px;
+    text-align: center;
+    transition: background-color .3s, border-color .3s;
+    font-size: 1.2em;
+}
+
+.male {
+    background: var(--sex-male);
+    border: 3px solid var(--sex-male);
+
+    &:hover {
+        border-color: var(--sex-alt-male);
+    }
+}
+
+.female {
+    background: var(--sex-female);
+    border: 3px solid var(--sex-female);
+
+    &:hover {
+        border-color: var(--sex-alt-female);
+    }
+}
+
+//male lable active
+#male:checked + .sex-radio-label {
+    background: var(--sex-alt-male);
+}
+
+//female label checked
+#female:checked + .sex-radio-label {
+    background: var(--sex-alt-female);
+}
+
+
+//textarea input
+textarea {
+    display: block;
+    border-radius: 25px;
+    width: 80%;
+    background: grey;
+    border: solid 1px white;
+    padding: 0 25px;
+    resize: none;
+    color: white;
+    font-size: 1.5em;
+    font-family: inherit;
+    font-weight: inherit;
+
+    -webkit-box-shadow: 0 0 0 0 transparent;
+    -moz-box-shadow: 0 0 0 0 transparent;
+    box-shadow: 0 0 0 0 transparent;
+
+    outline: none;
+
+    transition: box-shadow .3s;
+
+    &:focus {
+        -webkit-box-shadow: 0 0 0 2px var(--accent-yellow);
+        -moz-box-shadow: 0 0 0 2px var(--accent-yellow);
+        box-shadow: 0 0 0 2px var(--accent-yellow);
+    }
+}
+
+//basic labels
+.basic-label {
+    display: block;
+    font-size: 1.3em;
+    color: white;
+    margin: 0.3em;
+}

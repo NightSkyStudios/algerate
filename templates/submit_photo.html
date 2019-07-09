@@ -10,20 +10,52 @@
 
 {% include 'navbar.html' %}
 <div class="content" style=" background-image: url({% static 'img/Background.png' %});">
-    <div class="content-grid">
-        <div class="description-wraper">
-            <div class="description">
-            <span>SUBMIT A PHOTO PAGE</span>
-                <div class="button-group">
-                    <a href="" class="round-button">Submit a photo</a>
-                    <a href="" class="round-button">Rate</a>
+    <form style="display: initial" action="" method="POST">
+        <div class="content-grid">
+            <div class="description-wraper">
+                <div class="submit-photo-text description blend-hard-light">
+                    <h3>How doest it works?</h3>
+                    <span>
+                It is very simple - After you submit a photo, it will be
+                sent to our e-mail for verification. After verified, we
+                will send a special link to your e-mail with your
+                average rating and the number of votes on your
+                photo. Only YOU will have access to this link unless
+                you decide to share it with someone else, so your
+                anonymity is guaranteed.
+            </span>
+                    <label class="basic-label" for="email">Email address</label>
+                    <input type="text" name="email" id="email" placeholder="youremail@example.com">
+                    <label class="basic-label" for="age">Age</label>
+                    <input type="text" name="age" id="age" placeholder="Age">
+                    <br>
+                    <span>I'm
+                        <input hidden type="radio" name="sex" id="male">
+                        <label class="sex-radio-label male" for="male">Male</label>
+                        <input hidden type="radio" name="sex" id="female">
+                        <label class="sex-radio-label female" for="female">Female</label>
+                    </span>
+                    <h3>Rules:</h3>
+                    <ul>
+                        <li>Only ages 16-25 are allowed;</li>
+                        <li>No filters that markedly affect the photo;</li>
+                        <li>The face has to be clear and visible;</li>
+                        <li>No nudity or NSFW content.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="description-wraper">
+                <div class="submit-photo-image blend-hard-light">
+                    <div class="image-loaded"></div>
+                    <div class="file-load-group">
+                        <span>Load you photo here</span>
+                        <input type="file" name="file" id="file">
+                        <label for="file"></label>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="image-wraper">
-            <img src="{% static 'img/index_splash.png' %}" alt="" class="image">
-        </div>
-    </div>
+    </form>
 </div>
 </body>
 </html>

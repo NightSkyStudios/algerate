@@ -27,8 +27,7 @@
                     position: relative;
                     top: 40%;
                     color: white;
-                    font-size: 2em;
-
+                    font-size: 1em;
                 }
 
                 .button-group {
@@ -51,6 +50,18 @@
                 padding: 0;
                 top: 50%;
                 transform: translateY(-50%);
+            }
+        }
+
+        .submit-photo-image{
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+
+            .image-loaded{
+                background: white;
+                min-width: 100%;
+                height: auto;
             }
         }
     }
