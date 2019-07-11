@@ -9,13 +9,29 @@
 <body>
 {% include 'navbar.html' %}
 <div class="content" style=" background-image: url({% static 'img/Background.png' %});">
-<img id="rating-image" src="" alt="">
+    <div class="rating-grid">
+        <div class="a-left"></div>
 
-{% for i in rate %}
-    <button style="margin-top: 120px;" id="rate-{{ i }}" value="{{ i }}" onclick="rateButton(this)">{{ i }}</button>
-{% endfor %}
+        <div class="rating-wraper">
+            <span>I want to rate
+                <input hidden type="radio" name="sex" id="both">
+                <label class="sex-radio-label both" for="both">Both</label>
+                <input hidden type="radio" name="sex" id="male">
+                <label class="sex-radio-label male" for="male">Male</label>
+                <input hidden type="radio" name="sex" id="female">
+                <label class="sex-radio-label female" for="female">Female</label>
+            </span>
 
-<button onclick="loadImage()">get image</button>
+            {% for i in rate %}
+                <button class="number-button" id="rate-{{ i }}" value="{{ i }}"
+                        onclick="rateButton(this)">{{ i }}</button>
+            {% endfor %}
+            <img id="rating-image" src="" alt="">
+
+            <button onclick="loadImage()">get image</button>
+        </div>
+        <div class="a-right"></div>
+    </div>
 </div>
 <script src="{% static 'js/rating.js' %}"></script>
 </body>

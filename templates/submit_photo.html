@@ -35,6 +35,7 @@
                         <input hidden type="radio" name="sex" id="female">
                         <label class="sex-radio-label female" for="female">Female</label>
                     </span>
+                    <br>
                     <h3>Rules:</h3>
                     <ul>
                         <li>Only ages 16-25 are allowed;</li>
@@ -46,16 +47,36 @@
             </div>
             <div class="description-wraper">
                 <div class="submit-photo-image blend-hard-light">
-                    <div class="image-loaded"></div>
+                    <img id="loadedImage" src="" alt="">
                     <div class="file-load-group">
+                        <input class="inputfile" type="file" name="file" id="file">
                         <span>Load you photo here</span>
-                        <input type="file" name="file" id="file">
-                        <label for="file"></label>
+                        <label for="file">Get it started</label>
                     </div>
                 </div>
             </div>
         </div>
     </form>
 </div>
+<script>
+  let inputs = document.querySelectorAll('.inputfile');
+  Array.prototype.forEach.call(inputs, function (input) {
+    let span = input.nextElementSibling,
+        spanVal = span.innerHTML;
+
+    input.addEventListener('change', function (e) {
+      let fileName = e.target.value.split('\\' ).pop();
+
+      if (fileName)
+        span.innerHTML = fileName;
+      else
+        span.innerHTML = spanVal;
+
+      console.log(e.target.value)
+
+      document.getElementById('loadedPhoto').src = e.target.value.toString();
+    });
+  });
+</script>
 </body>
 </html>

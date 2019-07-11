@@ -13,6 +13,8 @@ body {
   --sex-alt-male: #5e85ff;
   --sex-female: #c1557e;
   --sex-alt-female: #ff70a5;
+  --sex-both: #a1a1a1;
+  --sex-alt-both: #c5c5c5;
   --navbar-heigth: 7vh;
 }
 
@@ -124,6 +126,8 @@ ul {
   /* Firefox, Chrome, Opera */
   color: #343434;
   font-size: 0.5em;
+  vertical-align: middle;
+  line-height: 2.5em;
 }
 
 :-ms-input-placeholder {
@@ -138,7 +142,7 @@ ul {
 
 input[type=text] {
   border-radius: 25px;
-  display: block;
+  display: inline;
   height: 1.5em;
   width: 80%;
   font-size: 1.5em;
@@ -161,16 +165,38 @@ input[type=text]:focus {
 input[type=file] {
   display: none;
 }
+input[type=file] ~ label {
+  border-radius: 50px;
+  background-color: var(--accent-yellow);
+  color: white;
+  text-decoration: none;
+  min-width: 200px;
+  display: inline-block;
+  text-align: center;
+  border: 1px var(--accent-yellow) solid;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 7px 14px 50px rgba(64, 21, 89, 0.2);
+  position: relative;
+  bottom: 1px;
+  right: -1px;
+  height: 1.3em;
+}
+input[type=file] ~ label:hover, input[type=file] ~ label:active {
+  background-color: white;
+  color: var(--accent-yellow);
+}
+
 .file-load-group {
   border-radius: 25px;
-  display: block;
-  height: 1.5em;
+  display: inline-flex;
+  height: 1.3em;
   width: 80%;
   font-size: 1.5em;
-  padding: 0 25px;
+  padding: 0 0 0 25px;
   background: grey;
   border: solid 1px white;
   color: white;
+  justify-content: space-between;
   -webkit-box-shadow: 0 0 0 0 transparent;
   -moz-box-shadow: 0 0 0 0 transparent;
   box-shadow: 0 0 0 0 transparent;
@@ -181,6 +207,11 @@ input[type=file] {
   -webkit-box-shadow: 0 0 0 2px var(--accent-yellow);
   -moz-box-shadow: 0 0 0 2px var(--accent-yellow);
   box-shadow: 0 0 0 2px var(--accent-yellow);
+}
+.file-load-group span {
+  font-size: 0.5em;
+  vertical-align: middle;
+  line-height: 2.5em;
 }
 
 .sex-radio-label {
@@ -211,12 +242,24 @@ input[type=file] {
   border-color: var(--sex-alt-female);
 }
 
+.both {
+  background: var(--sex-both);
+  border: 3px solid var(--sex-both);
+}
+.both:hover {
+  border-color: var(--sex-alt-both);
+}
+
 #male:checked + .sex-radio-label {
   background: var(--sex-alt-male);
 }
 
 #female:checked + .sex-radio-label {
   background: var(--sex-alt-female);
+}
+
+#both:checked + .sex-radio-label {
+  background: var(--sex-alt-both);
 }
 
 textarea {
@@ -250,6 +293,18 @@ textarea:focus {
   margin: 0.3em;
 }
 
+.rating-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-gap: 2em;
+  height: 100%;
+}
+.rating-grid .rating-wraper {
+  padding-top: 10vh;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
 .navbar {
   background: transparent;
   z-index: 20;

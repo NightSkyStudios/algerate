@@ -6,12 +6,11 @@ body {
     padding: 0;
 }
 
-
-
 @import "variables";
 @import "global";
 @import "index";
 @import "form";
+@import "rate";
 
 .navbar {
     background: transparent;

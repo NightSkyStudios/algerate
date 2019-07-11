@@ -1,0 +1,19 @@
+.rating-grid{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+
+    grid-gap: 2em;
+
+    height: 100%;
+
+    .rating-wraper{
+        padding-top: 10vh;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+
+        .number-button{
+
+        }
+    }
+}
