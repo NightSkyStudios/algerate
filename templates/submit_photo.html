@@ -49,7 +49,7 @@
                 <div class="submit-photo-image blend-hard-light">
                     <img id="loadedImage" src="" alt="">
                     <div class="file-load-group">
-                        <input class="inputfile" type="file" name="file" id="file">
+                        <input class="inputfile" type="file" name="file" id="file" onchange="readURL(this)">
                         <span>Load you photo here</span>
                         <label for="file">Get it started</label>
                     </div>
@@ -59,24 +59,32 @@
     </form>
 </div>
 <script>
-  let inputs = document.querySelectorAll('.inputfile');
-  Array.prototype.forEach.call(inputs, function (input) {
-    let span = input.nextElementSibling,
-        spanVal = span.innerHTML;
+    let inputs = document.querySelectorAll('.inputfile');
+    Array.prototype.forEach.call(inputs, function (input) {
+        let span = input.nextElementSibling,
+            spanVal = span.innerHTML;
 
-    input.addEventListener('change', function (e) {
-      let fileName = e.target.value.split('\\' ).pop();
+        input.addEventListener('change', function (e) {
+            let fileName = e.target.value.split('\\').pop();
 
-      if (fileName)
-        span.innerHTML = fileName;
-      else
-        span.innerHTML = spanVal;
-
-      console.log(e.target.value)
-
-      document.getElementById('loadedPhoto').src = e.target.value.toString();
+            if (fileName)
+                span.innerHTML = fileName;
+            else
+                span.innerHTML = spanVal;
+        });
     });
-  });
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                document.getElementById('loadedImage').src = e.target.result;
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
 </script>
 </body>
 </html>

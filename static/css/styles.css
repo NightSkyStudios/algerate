@@ -9,6 +9,7 @@ body {
   --background-pink: #fb7bc6;
   --background-yellow: #ee941a;
   --accent-yellow: #ffbf00;
+  --accent-red: #f26d7d;
   --sex-male: #4963c5;
   --sex-alt-male: #5e85ff;
   --sex-female: #c1557e;
@@ -305,6 +306,22 @@ textarea:focus {
   top: 50%;
   transform: translateY(-50%);
 }
+.rating-grid .rating-wraper .number-button {
+  background-color: var(--accent-red);
+}
+
+#loadedImage {
+  margin-bottom: 2em;
+  display: block;
+  max-width: 80%;
+  max-height: 80%;
+  transform: translateX(-50%);
+  position: relative;
+  left: 50%;
+  z-index: 5;
+  isolation: isolate;
+}
+
 .navbar {
   background: transparent;
   z-index: 20;
