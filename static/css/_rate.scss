@@ -1,4 +1,4 @@
-.rating-grid{
+.rating-grid {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
 
@@ -6,14 +6,37 @@
 
     height: 100%;
 
-    .rating-wraper{
+    .rating-wraper {
         padding-top: 10vh;
         position: relative;
         top: 50%;
         transform: translateY(-50%);
+        text-align: center;
 
-        .number-button{
-            background-color: var(--accent-red)
+        span {
+            color: white;
+            font-size: 1.5em;
+            margin: 1em 0;
+        }
+
+        .sex-radio-group {
+            text-align: center;
+            margin: 1em 0;
+        }
+
+        .rate-buttons-group {
+            color: white;
+            margin: 1em 0;
+
+            .number-button {
+                background-color: var(--accent-red);
+                border: none;
+                font-size: 2em;
+                color: white;
+                border-radius: 50%;
+                width: 1.5em;
+                height: 1.5em;
+            }
         }
     }
 }

@@ -305,12 +305,44 @@ textarea:focus {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+  text-align: center;
 }
-.rating-grid .rating-wraper .number-button {
+.rating-grid .rating-wraper span {
+  color: white;
+  font-size: 1.5em;
+  margin: 1em 0;
+}
+.rating-grid .rating-wraper .sex-radio-group {
+  text-align: center;
+  margin: 1em 0;
+}
+.rating-grid .rating-wraper .rate-buttons-group {
+  color: white;
+  margin: 1em 0;
+}
+.rating-grid .rating-wraper .rate-buttons-group .number-button {
   background-color: var(--accent-red);
+  border: none;
+  font-size: 2em;
+  color: white;
+  border-radius: 50%;
+  width: 1.5em;
+  height: 1.5em;
 }
 
 #loadedImage {
+  margin-bottom: 2em;
+  display: block;
+  max-width: 80%;
+  max-height: 80%;
+  transform: translateX(-50%);
+  position: relative;
+  left: 50%;
+  z-index: 5;
+  isolation: isolate;
+}
+
+.adaptive-image {
   margin-bottom: 2em;
   display: block;
   max-width: 80%;

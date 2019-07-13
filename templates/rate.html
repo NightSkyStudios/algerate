@@ -13,20 +13,23 @@
         <div class="a-left"></div>
 
         <div class="rating-wraper">
-            <span>I want to rate
+        <span>I want to rate</span><br>
+            <div class="sex-radio-group">
                 <input hidden type="radio" name="sex" id="both">
                 <label class="sex-radio-label both" for="both">Both</label>
                 <input hidden type="radio" name="sex" id="male">
                 <label class="sex-radio-label male" for="male">Male</label>
                 <input hidden type="radio" name="sex" id="female">
                 <label class="sex-radio-label female" for="female">Female</label>
-            </span>
+            </div>
 
-            {% for i in rate %}
-                <button class="number-button" id="rate-{{ i }}" value="{{ i }}"
-                        onclick="rateButton(this)">{{ i }}</button>
-            {% endfor %}
-            <img id="rating-image" src="" alt="">
+            <div class="rate-buttons-group">
+                {% for i in rate %}
+                    <button class="number-button" id="rate-{{ i }}" value="{{ i }}"
+                            onclick="rateButton(this)">{{ i }}</button>
+                {% endfor %}
+            </div>
+            <img class="adaptive-image" id="rating-image" src="" alt="">
 
             <button onclick="loadImage()">get image</button>
         </div>
