@@ -5,15 +5,17 @@
     <meta charset="UTF-8">
     <title>Submit a photo</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
 {% include 'navbar.html' %}
 <div class="content" style=" background-image: url({% static 'img/Background.png' %});">
     <form style="display: initial" action="" method="POST">
+        {% csrf_token %}
         <div class="content-grid">
             <div class="description-wraper">
-                <div class="submit-photo-text description blend-hard-light">
+                <div class="submit-photo-text description">
                     <h3>How doest it works?</h3>
                     <span>
                 It is very simple - After you submit a photo, it will be
@@ -25,17 +27,17 @@
                 anonymity is guaranteed.
             </span>
                     <label class="basic-label" for="email">Email address</label>
-                    <input type="text" name="email" id="email" placeholder="youremail@example.com">
+                    <input required type="email" name="email" id="email" placeholder="youremail@example.com">
                     <label class="basic-label" for="age">Age</label>
-                    <input type="text" name="age" id="age" placeholder="Age">
+                    <input required type="number" name="age" id="age" placeholder="Age">
                     <br>
-                    <span>I'm
-                        <input hidden type="radio" name="sex" id="male">
+                    <div class="sex-radio-group">
+                        <span>I'm</span>
+                        <input required type="radio" name="sex" id="male" value="Male">
                         <label class="sex-radio-label male" for="male">Male</label>
-                        <input hidden type="radio" name="sex" id="female">
+                        <input required type="radio" name="sex" id="female" value="Female">
                         <label class="sex-radio-label female" for="female">Female</label>
-                    </span>
-                    <br>
+                    </div>
                     <h3>Rules:</h3>
                     <ul>
                         <li>Only ages 16-25 are allowed;</li>
@@ -45,14 +47,15 @@
                     </ul>
                 </div>
             </div>
-            <div class="description-wraper">
-                <div class="submit-photo-image blend-hard-light">
-                    <img id="loadedImage" src="" alt="">
+            <div class="image-wraper">
+                <div class="submit-photo-image">
+                    <img src="" alt="" id="loadedImage">
                     <div class="file-load-group">
-                        <input class="inputfile" type="file" name="file" id="file" onchange="readURL(this)">
+                        <input required class="inputfile" type="file" name="file" id="file" onchange="readURL(this)">
                         <span>Load you photo here</span>
-                        <label for="file">Get it started</label>
+                        <label for="file">Load</label>
                     </div>
+                    <input class="round-button" type="submit" value="Submit">
                 </div>
             </div>
         </div>

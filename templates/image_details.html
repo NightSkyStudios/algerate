@@ -1,12 +1,33 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-<img src="{{ image.image.url }}" alt="">
-<span>{{ image.pk }}</span>
-<span>{{ avg }}</span>
+<div class="content" style=" background-image: url({% static 'img/Background.png' %});">
+    {% include 'navbar.html' %}
+    <div class="content-grid">
+        <div class="description-wraper">
+            <div class="submit-photo-text description">
+                <span>
+                    This information will only be visible to people with this specific link.
+                    Remember to take the rating with a grain of salt -
+                    only a very small percentage of the world’s population have voted.
+            </span>
+            </div>
+        </div>
+        <div class="image-wraper">
+            <div class="submit-photo-image">
+                <img src="{{ image.image.url }}" alt="" id="loadedImage">
+                <p class="dp">Average rating: <span id="average-number" class="average-number">{{ avg }}</span></p>
+                <p class="dp">Number of votes: <span id="average-number" class="average-number">{{ count }}</span></p>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

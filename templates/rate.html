@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 {% include 'navbar.html' %}
@@ -13,9 +14,9 @@
         <div class="a-left"></div>
 
         <div class="rating-wraper">
-        <span>I want to rate</span><br>
+            <span class="span">I want to rate</span><br>
             <div class="sex-radio-group">
-                <input hidden type="radio" name="sex" id="both">
+                <input checked hidden type="radio" name="sex" id="both">
                 <label class="sex-radio-label both" for="both">Both</label>
                 <input hidden type="radio" name="sex" id="male">
                 <label class="sex-radio-label male" for="male">Male</label>
@@ -30,10 +31,10 @@
                 {% endfor %}
             </div>
             <img class="adaptive-image" id="rating-image" src="" alt="">
-
-            <button onclick="loadImage()">get image</button>
+            <p>Average rating: <span id="average-number" class="average-number">10</span></p>
         </div>
         <div class="a-right"></div>
+        <div class="a-mobile"></div>
     </div>
 </div>
 <script src="{% static 'js/rating.js' %}"></script>

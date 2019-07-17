@@ -1,0 +1,44 @@
+.content {
+    background: linear-gradient(45deg, blue, cyan);
+    padding: 0 1em;
+
+    .verify-grid {
+        position: relative;
+        top: 7vh;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+        grid-gap: 1em;
+
+        .photo-container {
+
+            form {
+                font-size: 1rem;
+                line-height: 1.5;
+                padding: 1rem .75rem;
+                color: #666666;
+                background: white;
+                border-bottom-left-radius: .5rem;
+                border-bottom-right-radius: .5rem;
+                text-align: center;
+            }
+
+            .img-container {
+                height: 100%;
+                max-height: 500px;
+                overflow: hidden;
+                border-top-left-radius: .5rem;
+                border-top-right-radius: .5rem;
+                position: relative;
+
+                img {
+                    width: 100%;
+                    position: relative;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+
+        }
+    }
+}

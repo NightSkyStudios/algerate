@@ -8,23 +8,43 @@
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
     color: #343434;
+    font-size: 0.5em;
+    vertical-align: middle;
+    line-height: 2.5em;
 }
 
 ::-ms-input-placeholder { /* Microsoft Edge */
     color: #343434;
+    font-size: 0.5em;
+    vertical-align: middle;
+    line-height: 2.5em;
 }
 
 //end
 
+input[type=submit] {
+    transform: translateX(-50%);
+    position: relative;
+    left: 50%;
+
+    @media only screen and (max-width: 800px) {
+        transform: none;
+        position: static;
+        left: 0;
+    }
+}
+
 //Input textfield
-input[type=text] {
+input[type=text],
+input[type=email],
+input[type=number] {
     border-radius: 25px;
     display: inline;
     height: 1.5em;
-    width: 80%;
+    width: calc(100% - 25px);
     font-size: 1.5em;
-    padding: 0 25px;
-    background: grey;
+    padding: 0 0 0 25px;
+    background: transparent;
     border: solid 1px white;
     color: white;
 
@@ -45,15 +65,18 @@ input[type=text] {
 
 //file input label styling
 input[type=file] {
-    display: none;
+    display: block;
+    opacity: 0;
+    position: absolute;
+    z-index: -10;
 
     & ~ label {
         border-radius: 50px;
         background-color: var(--accent-yellow);
         color: white;
         text-decoration: none;
-        //padding: 0.2em 0.5em;
-        min-width: 200px;
+        padding: 0 0.5em;
+        //min-width: 200px;
         display: inline-block;
         text-align: center;
         //font-size: 1.3em;
@@ -65,7 +88,6 @@ input[type=file] {
         bottom: 1px;
         right: -1px;
         height: 1.3em;
-
 
         &:hover,
         &:active {
@@ -80,10 +102,10 @@ input[type=file] {
     border-radius: 25px;
     display: inline-flex;
     height: 1.3em;
-    width: 80%;
+    width: 90%;
     font-size: 1.5em;
     padding: 0 0 0 25px;
-    background: grey;
+    background: transparent;
     border: solid 1px white;
     color: white;
     justify-content: space-between;
@@ -96,16 +118,21 @@ input[type=file] {
 
     transition: box-shadow .3s;
 
+    position: relative;
+    transform: translateX(-50%);
+    left: 50%;
+
     &:focus {
         -webkit-box-shadow: 0 0 0 2px var(--accent-yellow);
         -moz-box-shadow: 0 0 0 2px var(--accent-yellow);
         box-shadow: 0 0 0 2px var(--accent-yellow);
     }
 
-    span{
+    span {
         font-size: 0.5em;
         vertical-align: middle;
         line-height: 2.5em;
+        white-space: nowrap;
     }
 }
 
@@ -120,6 +147,10 @@ input[type=file] {
     text-align: center;
     transition: background-color .3s, border-color .3s;
     font-size: 1.2em;
+}
+
+input[type=radio] {
+    opacity: 0;
 }
 
 .male {
@@ -159,7 +190,6 @@ input[type=file] {
     background: var(--sex-alt-female);
 }
 
-
 //both label checked
 #both:checked + .sex-radio-label {
     background: var(--sex-alt-both);
@@ -170,7 +200,7 @@ textarea {
     display: block;
     border-radius: 25px;
     width: 80%;
-    background: grey;
+    background: transparent;
     border: solid 1px white;
     padding: 0 25px;
     resize: none;

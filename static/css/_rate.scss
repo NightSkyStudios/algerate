@@ -1,10 +1,17 @@
 .rating-grid {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: 'al rating ar';
 
     grid-gap: 2em;
 
     height: 100%;
+
+    @media only screen and (max-width: 800px) {
+        grid-template-areas: 'rating' 'am';
+        grid-template-columns: 1fr;
+        grid-template-rows: 5fr 1fr;
+    }
 
     .rating-wraper {
         padding-top: 10vh;
@@ -12,8 +19,13 @@
         top: 50%;
         transform: translateY(-50%);
         text-align: center;
+        grid-area: rating;
 
-        span {
+        @media only screen and (max-width: 800px) {
+
+        }
+
+        .span {
             color: white;
             font-size: 1.5em;
             margin: 1em 0;
@@ -22,6 +34,9 @@
         .sex-radio-group {
             text-align: center;
             margin: 1em 0;
+            display: flex;
+            justify-content: space-around;
+            white-space: nowrap;
         }
 
         .rate-buttons-group {
@@ -36,7 +51,52 @@
                 border-radius: 50%;
                 width: 1.5em;
                 height: 1.5em;
+
+                transition: background-color .3s;
+
+                cursor: pointer;
+
+                &:hover {
+                    background-color: var(--accent-yellow);
+                }
             }
         }
+
+        p {
+            color: white;
+            font-size: 1.5em;
+        }
+
     }
+
+    .a-left {
+        grid-area: al;
+
+        @media only screen and (max-width: 800px) {
+            display: none;
+        }
+    }
+
+    .a-right {
+        grid-area: ar;
+
+        @media only screen and (max-width: 800px) {
+            display: none;
+        }
+    }
+
+    .a-mobile {
+        grid-area: am;
+        display: none;
+        @media only screen and (max-width: 800px) {
+            display: block;
+        }
+    }
+}
+
+.average-number {
+    background-color: var(--accent-red);
+    border-radius: 25%;
+    padding: 0 0.5em;
+    font-size: 1.5em;
 }

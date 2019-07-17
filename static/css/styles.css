@@ -10,12 +10,14 @@ body {
   --background-yellow: #ee941a;
   --accent-yellow: #ffbf00;
   --accent-red: #f26d7d;
-  --sex-male: #4963c5;
-  --sex-alt-male: #5e85ff;
-  --sex-female: #c1557e;
-  --sex-alt-female: #ff70a5;
-  --sex-both: #a1a1a1;
-  --sex-alt-both: #c5c5c5;
+  --sex-male: #5e85ff;
+  --sex-alt-male: #6551ff;
+  --sex-female: #ff71a5;
+  --sex-alt-female: #ff3c5c;
+  --sex-both: #e0e0e0;
+  --sex-alt-both: #b9b9b9;
+  --button-red: #ff6e78;
+  --button-green: #a1ff8a;
   --navbar-heigth: 7vh;
 }
 
@@ -37,6 +39,24 @@ body {
 .round-button:hover, .round-button:active {
   background-color: white;
   color: var(--accent-yellow);
+}
+
+.button-red {
+  background-color: var(--button-red);
+  border: 2px var(--button-red) solid;
+}
+.button-red:hover, .button-red:active {
+  background-color: white;
+  color: var(--button-red);
+}
+
+.button-green {
+  background-color: var(--button-green);
+  border: 2px var(--button-green) solid;
+}
+.button-green:hover, .button-green:active {
+  background-color: white;
+  color: var(--button-green);
 }
 
 h2 {
@@ -65,11 +85,21 @@ ul {
   color: white;
   text-decoration: none;
 }
+.dp {
+  color: white;
+  font-size: 1.5em;
+}
+
 .content {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+}
+@media only screen and (max-width: 800px) {
+  .content {
+    height: unset;
+  }
 }
 .content-grid {
   display: grid;
@@ -78,15 +108,32 @@ ul {
   grid-template-columns: 1fr 1fr;
   padding: 0 2em;
   height: 100%;
-  margin-left: 2em;
+  grid-template-areas: "text photo";
+}
+@media only screen and (max-width: 800px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr;
+    text-align: center;
+    grid-gap: 0;
+    grid-template-areas: "photo" "text";
+    padding: 0;
+  }
 }
 .content-grid .description-wraper {
   height: 100%;
+  grid-area: text;
 }
 .content-grid .description-wraper .description {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+}
+@media only screen and (max-width: 800px) {
+  .content-grid .description-wraper .description {
+    top: 0;
+    transform: none;
+  }
 }
 .content-grid .description-wraper .description span {
   position: relative;
@@ -102,6 +149,7 @@ ul {
 }
 .content-grid .image-wraper {
   height: 100%;
+  grid-area: photo;
 }
 .content-grid .image-wraper .image {
   display: block;
@@ -111,6 +159,13 @@ ul {
   padding: 0;
   top: 50%;
   transform: translateY(-50%);
+}
+@media only screen and (max-width: 800px) {
+  .content-grid .image-wraper .image {
+    top: 0;
+    transform: none;
+    width: 60%;
+  }
 }
 .content-grid .submit-photo-image {
   position: relative;
@@ -134,21 +189,42 @@ ul {
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: #343434;
+  font-size: 0.5em;
+  vertical-align: middle;
+  line-height: 2.5em;
 }
 
 ::-ms-input-placeholder {
   /* Microsoft Edge */
   color: #343434;
+  font-size: 0.5em;
+  vertical-align: middle;
+  line-height: 2.5em;
 }
 
-input[type=text] {
+input[type=submit] {
+  transform: translateX(-50%);
+  position: relative;
+  left: 50%;
+}
+@media only screen and (max-width: 800px) {
+  input[type=submit] {
+    transform: none;
+    position: static;
+    left: 0;
+  }
+}
+
+input[type=text],
+input[type=email],
+input[type=number] {
   border-radius: 25px;
   display: inline;
   height: 1.5em;
-  width: 80%;
+  width: calc(100% - 25px);
   font-size: 1.5em;
-  padding: 0 25px;
-  background: grey;
+  padding: 0 0 0 25px;
+  background: transparent;
   border: solid 1px white;
   color: white;
   -webkit-box-shadow: 0 0 0 0 transparent;
@@ -157,21 +233,26 @@ input[type=text] {
   outline: none;
   transition: box-shadow 0.3s;
 }
-input[type=text]:focus {
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=number]:focus {
   -webkit-box-shadow: 0 0 0 2px var(--accent-yellow);
   -moz-box-shadow: 0 0 0 2px var(--accent-yellow);
   box-shadow: 0 0 0 2px var(--accent-yellow);
 }
 
 input[type=file] {
-  display: none;
+  display: block;
+  opacity: 0;
+  position: absolute;
+  z-index: -10;
 }
 input[type=file] ~ label {
   border-radius: 50px;
   background-color: var(--accent-yellow);
   color: white;
   text-decoration: none;
-  min-width: 200px;
+  padding: 0 0.5em;
   display: inline-block;
   text-align: center;
   border: 1px var(--accent-yellow) solid;
@@ -191,10 +272,10 @@ input[type=file] ~ label:hover, input[type=file] ~ label:active {
   border-radius: 25px;
   display: inline-flex;
   height: 1.3em;
-  width: 80%;
+  width: 90%;
   font-size: 1.5em;
   padding: 0 0 0 25px;
-  background: grey;
+  background: transparent;
   border: solid 1px white;
   color: white;
   justify-content: space-between;
@@ -203,6 +284,9 @@ input[type=file] ~ label:hover, input[type=file] ~ label:active {
   box-shadow: 0 0 0 0 transparent;
   outline: none;
   transition: box-shadow 0.3s;
+  position: relative;
+  transform: translateX(-50%);
+  left: 50%;
 }
 .file-load-group:focus {
   -webkit-box-shadow: 0 0 0 2px var(--accent-yellow);
@@ -213,6 +297,7 @@ input[type=file] ~ label:hover, input[type=file] ~ label:active {
   font-size: 0.5em;
   vertical-align: middle;
   line-height: 2.5em;
+  white-space: nowrap;
 }
 
 .sex-radio-label {
@@ -225,6 +310,10 @@ input[type=file] ~ label:hover, input[type=file] ~ label:active {
   text-align: center;
   transition: background-color 0.3s, border-color 0.3s;
   font-size: 1.2em;
+}
+
+input[type=radio] {
+  opacity: 0;
 }
 
 .male {
@@ -267,7 +356,7 @@ textarea {
   display: block;
   border-radius: 25px;
   width: 80%;
-  background: grey;
+  background: transparent;
   border: solid 1px white;
   padding: 0 25px;
   resize: none;
@@ -297,8 +386,16 @@ textarea:focus {
 .rating-grid {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
+  grid-template-areas: "al rating ar";
   grid-gap: 2em;
   height: 100%;
+}
+@media only screen and (max-width: 800px) {
+  .rating-grid {
+    grid-template-areas: "rating" "am";
+    grid-template-columns: 1fr;
+    grid-template-rows: 5fr 1fr;
+  }
 }
 .rating-grid .rating-wraper {
   padding-top: 10vh;
@@ -306,8 +403,9 @@ textarea:focus {
   top: 50%;
   transform: translateY(-50%);
   text-align: center;
+  grid-area: rating;
 }
-.rating-grid .rating-wraper span {
+.rating-grid .rating-wraper .span {
   color: white;
   font-size: 1.5em;
   margin: 1em 0;
@@ -315,6 +413,9 @@ textarea:focus {
 .rating-grid .rating-wraper .sex-radio-group {
   text-align: center;
   margin: 1em 0;
+  display: flex;
+  justify-content: space-around;
+  white-space: nowrap;
 }
 .rating-grid .rating-wraper .rate-buttons-group {
   color: white;
@@ -328,6 +429,47 @@ textarea:focus {
   border-radius: 50%;
   width: 1.5em;
   height: 1.5em;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+.rating-grid .rating-wraper .rate-buttons-group .number-button:hover {
+  background-color: var(--accent-yellow);
+}
+.rating-grid .rating-wraper p {
+  color: white;
+  font-size: 1.5em;
+}
+.rating-grid .a-left {
+  grid-area: al;
+}
+@media only screen and (max-width: 800px) {
+  .rating-grid .a-left {
+    display: none;
+  }
+}
+.rating-grid .a-right {
+  grid-area: ar;
+}
+@media only screen and (max-width: 800px) {
+  .rating-grid .a-right {
+    display: none;
+  }
+}
+.rating-grid .a-mobile {
+  grid-area: am;
+  display: none;
+}
+@media only screen and (max-width: 800px) {
+  .rating-grid .a-mobile {
+    display: block;
+  }
+}
+
+.average-number {
+  background-color: var(--accent-red);
+  border-radius: 25%;
+  padding: 0 0.5em;
+  font-size: 1.5em;
 }
 
 #loadedImage {
@@ -354,6 +496,47 @@ textarea:focus {
   isolation: isolate;
 }
 
+.sex-radio-group {
+  margin: 1em 0;
+  white-space: nowrap;
+}
+
+.content {
+  background: linear-gradient(45deg, blue, cyan);
+  padding: 0 1em;
+}
+.content .verify-grid {
+  position: relative;
+  top: 7vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-gap: 1em;
+}
+.content .verify-grid .photo-container form {
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 1rem 0.75rem;
+  color: #666666;
+  background: white;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  text-align: center;
+}
+.content .verify-grid .photo-container .img-container {
+  height: 100%;
+  max-height: 500px;
+  overflow: hidden;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  position: relative;
+}
+.content .verify-grid .photo-container .img-container img {
+  width: 100%;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .navbar {
   background: transparent;
   z-index: 20;
@@ -367,6 +550,11 @@ textarea:focus {
   height: var(--navbar-heigth);
   width: 100%;
   padding: 1em 0 0 0;
+}
+@media only screen and (max-width: 800px) {
+  .navbar {
+    display: none;
+  }
 }
 .navbar span {
   color: white;
@@ -385,12 +573,75 @@ textarea:focus {
   text-decoration: none;
   flex-basis: 15%;
   text-align: center;
+  white-space: nowrap;
   margin: 1em;
+  border-bottom: transparent solid 2px;
+  transition: border-color 0.3s;
+}
+.navbar a:hover {
+  border-color: var(--accent-yellow);
 }
 
-#rating-image {
-  height: 500px;
-  width: 500px;
+.mobile-nav {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-pink);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.mobile-nav ul {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  list-style-type: none;
+  font-size: 3em;
+  width: fit-content;
+  width: -moz-fit-content;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.mobile-nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+#navbar-toggle:checked + .mobile-nav {
+  opacity: 1;
+  z-index: 1;
+}
+
+.mobile-nav-toggle {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  background-color: var(--accent-yellow);
+  z-index: 2;
+  border: 2px var(--accent-yellow) solid;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 7px 14px 50px rgba(64, 21, 89, 0.2);
+}
+@media only screen and (max-width: 800px) {
+  .mobile-nav-toggle {
+    display: block;
+  }
+}
+.mobile-nav-toggle:hover, .mobile-nav-toggle:active {
+  background-color: white;
+  color: var(--accent-yellow);
+}
+.mobile-nav-toggle:hover svg, .mobile-nav-toggle:active svg {
+  fill: var(--accent-yellow);
+}
+.mobile-nav-toggle svg {
+  fill: white;
+  transition: fill 0.3s;
 }
 
 /*# sourceMappingURL=styles.css.map */

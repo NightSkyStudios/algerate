@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -17,8 +18,8 @@
                 rate them. Feel free to submit a photo of yourself if you are feeling curious, or rate other people's
                 photos if you are looking for a great time-killer.</span>
                 <div class="button-group">
-                    <a href="" class="round-button">Submit a photo</a>
-                    <a href="" class="round-button">Rate</a>
+                    <a href="{% url 'submit_photo' %}" class="round-button">Submit a photo</a>
+                    <a href="{% url 'rate' %}" class="round-button">Rate</a>
                 </div>
             </div>
         </div>

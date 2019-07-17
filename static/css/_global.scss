@@ -14,38 +14,65 @@
     box-shadow: 7px 14px 50px rgba(64, 21, 89, 0.2);
 
     &:hover,
-    &:active{
+    &:active {
         background-color: white;
         color: var(--accent-yellow);
     }
 }
 
-h2{
+.button-red {
+    background-color: var(--button-red);
+    border: 2px var(--button-red) solid;
+
+    &:hover,
+    &:active {
+        background-color: white;
+        color: var(--button-red);
+    }
+}
+
+.button-green {
+    background-color: var(--button-green);
+    border: 2px var(--button-green) solid;
+
+    &:hover,
+    &:active {
+        background-color: white;
+        color: var(--button-green);
+    }
+}
+
+h2 {
     font-size: 3em;
     color: white;
     margin-bottom: .2em;
     margin-top: .2em;
 }
 
-h3{
+h3 {
     font-size: 2em;
     color: white;
     margin-bottom: .2em;
     margin-top: .2em;
 }
 
-.fs-2{
+.fs-2 {
     font-size: 2em;
 }
 
-.blend-hard-light{
+.blend-hard-light {
     mix-blend-mode: hard-light;
 }
 
-ul{
-    color:white;
+ul {
+    color: white;
     text-decoration: none;
-    li{
+    li {
 
     }
+}
+
+.dp{
+    color:white;
+    font-size: 1.5em;
 }

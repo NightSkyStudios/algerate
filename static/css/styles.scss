@@ -12,53 +12,5 @@ body {
 @import "form";
 @import "rate";
 @import "submit_page";
-
-.navbar {
-    background: transparent;
-    z-index: 20;
-
-    //Position
-    position: absolute;
-    left: 0;
-    top: 0;
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-content: center;
-    height: var(--navbar-heigth);
-    width: 100%;
-    padding: 1em 0 0 0;
-
-    span {
-        //Style
-        color: white;
-        font-weight: bold;
-
-        //Position
-        position: relative;
-        left: 0;
-        margin: 0 0 0 1em;
-        padding: 0;
-        height: 100%;
-        width: fit-content;
-        font-size: 2em;
-        flex-basis: 60%;
-    }
-
-    a {
-        //Style
-        color: white;
-        text-decoration: none;
-        flex-basis: 15%;
-        text-align: center;
-
-        //Position
-        margin: 1em;
-
-    }
-}
-
-#rating-image{
-    height: 500px;
-    width: 500px;
-}
+@import "verify-page";
+@import "navbar";

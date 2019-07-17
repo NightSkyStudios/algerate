@@ -5,6 +5,9 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+    @media only screen and (max-width: 800px) {
+        height: unset;
+    }
 
     &-grid {
         display: grid;
@@ -13,15 +16,30 @@
         grid-template-columns: 1fr 1fr;
         padding: 0 2em;
         height: 100%;
-        margin-left: 2em;
+        grid-template-areas: 'text photo';
+
+        @media only screen and (max-width: 800px) {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 3fr;
+            text-align: center;
+            grid-gap: 0;
+            grid-template-areas: 'photo' 'text';
+            padding: 0;
+        }
 
         .description-wraper {
             height: 100%;
+            grid-area: text;
 
             .description {
+
                 position: relative;
                 top: 50%;
                 transform: translateY(-50%);
+                @media only screen and (max-width: 800px) {
+                    top: 0;
+                    transform: none;
+                }
 
                 span {
                     position: relative;
@@ -41,6 +59,11 @@
 
         .image-wraper {
             height: 100%;
+            grid-area: photo;
+
+            @media only screen and (max-height: 700px) {
+
+            }
 
             .image {
                 display: block;
@@ -50,15 +73,22 @@
                 padding: 0;
                 top: 50%;
                 transform: translateY(-50%);
+
+                @media only screen and (max-width: 800px) {
+                    top: 0;
+                    transform: none;
+                    width: 60%;
+                }
+
             }
         }
 
-        .submit-photo-image{
+        .submit-photo-image {
             position: relative;
             top: 50%;
             transform: translateY(-50%);
 
-            .image-loaded{
+            .image-loaded {
                 background: white;
                 min-width: 100%;
                 height: auto;
