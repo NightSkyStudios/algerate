@@ -11,21 +11,21 @@
 
 {% include 'navbar.html' %}
 <div class="content" style=" background-image: url({% static 'img/Background.png' %});">
-    <form style="display: initial" action="" method="POST">
+    <form style="display: initial" action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="content-grid">
-            <div class="description-wraper">
+            <div class="description-wraper grid-a-left grid-m-top">
                 <div class="submit-photo-text description">
-                    <h3>How doest it works?</h3>
+                    <h3>How does it works?</h3>
                     <span>
-                It is very simple - After you submit a photo, it will be
-                sent to our e-mail for verification. After verified, we
-                will send a special link to your e-mail with your
-                average rating and the number of votes on your
-                photo. Only YOU will have access to this link unless
-                you decide to share it with someone else, so your
-                anonymity is guaranteed.
-            </span>
+                        It is very simple - After you submit a photo, it will be
+                        sent to our e-mail for verification. After verified, we
+                        will send a special link to your e-mail with your
+                        average rating and the number of votes on your
+                        photo. Only YOU will have access to this link unless
+                        you decide to share it with someone else, so your
+                        anonymity is guaranteed.
+                    </span>
                     <label class="basic-label" for="email">Email address</label>
                     <input required type="email" name="email" id="email" placeholder="youremail@example.com">
                     <label class="basic-label" for="age">Age</label>
@@ -47,7 +47,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="image-wraper">
+            <div class="image-wraper grid-a-right grid-m-bottom">
                 <div class="submit-photo-image">
                     <img src="" alt="" id="loadedImage">
                     <div class="file-load-group">

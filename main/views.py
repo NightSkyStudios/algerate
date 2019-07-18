@@ -85,13 +85,13 @@ def get_image(request, mode):
     for r in ratings:
         s += r.rating
     try:
-        avg = s / count
+        avg = format(s/count, ".1f")
     except ZeroDivisionError:
         avg = 'not rated yet'
 
     request.session.__setitem__('uuid', image.unique_link.__str__())
 
-    return HttpResponse(f'{image.image.url}\n{format(avg, ".1f")}')
+    return HttpResponse(f'{image.image.url}\n{avg}')
 
 
 def rate_image(request, rate):
@@ -122,10 +122,12 @@ def submit_photo(request):
         email = request.POST.get('email')
         age = request.POST.get('age')
         sex = request.POST.get('sex')
-        image = request.POST.get('file')
-        PostedImage.objects.create(email=email,
+        image = request.FILES['file']
+        # print(f)
+        instance = PostedImage.objects.create(email=email,
                                    age=age,
                                    sex=sex,
                                    image=image)
+        instance.save()
 
     return render(request, 'submit_photo.html')

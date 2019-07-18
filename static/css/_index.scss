@@ -1,3 +1,23 @@
+.grid-a-left {
+    grid-area: left;
+}
+
+.grid-a-right {
+    grid-area: right;
+}
+
+.grid-m-top {
+    @media only screen and (max-width: 800px) {
+        grid-area: top;
+    }
+}
+
+.grid-m-bottom {
+    @media only screen and (max-width: 800px) {
+        grid-area: bottom;
+    }
+}
+
 .content {
     //Style
     //background: {% %};
@@ -16,20 +36,19 @@
         grid-template-columns: 1fr 1fr;
         padding: 0 2em;
         height: 100%;
-        grid-template-areas: 'text photo';
+        grid-template-areas: 'left right';
 
         @media only screen and (max-width: 800px) {
             grid-template-columns: 1fr;
-            grid-template-rows: 1fr 3fr;
+            grid-template-rows: 1fr 200px;
             text-align: center;
             grid-gap: 0;
-            grid-template-areas: 'photo' 'text';
-            padding: 0;
+            grid-template-areas: 'top' 'bottom';
+            padding: 60px 0 0 0;
         }
 
         .description-wraper {
             height: 100%;
-            grid-area: text;
 
             .description {
 
@@ -51,7 +70,6 @@
                 .button-group {
                     position: relative;
                     top: 40%;
-                    margin: 2em;
                     bottom: 0;
                 }
             }
@@ -59,10 +77,9 @@
 
         .image-wraper {
             height: 100%;
-            grid-area: photo;
 
-            @media only screen and (max-height: 700px) {
-
+            @media only screen and (max-height: 800px) {
+                height: fit-content;
             }
 
             .image {
@@ -87,6 +104,11 @@
             position: relative;
             top: 50%;
             transform: translateY(-50%);
+
+            @media only screen and (max-width: 800px) {
+                top: 0;
+                transform: none;
+            }
 
             .image-loaded {
                 background: white;
