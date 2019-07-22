@@ -90,6 +90,30 @@ ul {
   font-size: 1.5em;
 }
 
+footer {
+  position: absolute;
+  bottom: 0;
+  color: white;
+  background: transparent;
+  padding: 2em;
+}
+@media only screen and (max-width: 800px) {
+  footer {
+    display: none;
+  }
+}
+
+.navbar-mobile {
+  display: none;
+}
+@media only screen and (max-width: 800px) {
+  .navbar-mobile {
+    display: block;
+    color: white;
+    background: transparent;
+  }
+}
+
 .grid-a-left {
   grid-area: left;
 }
@@ -518,7 +542,7 @@ textarea:focus {
 .adaptive-image {
   margin-bottom: 2em;
   display: block;
-  max-width: 100%;
+  max-height: 50vh;
   transform: translateX(-50%);
   position: relative;
   left: 50%;
