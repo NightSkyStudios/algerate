@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>No Images</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+{% include 'navbar.html' %}
+<div class="content" style="background-image: url({% static 'img/Background.png' %});">
+    <h1>Sorry, looks like you have rated all we have</h1>
+    <span>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid assumenda atque commodi deserunt dolorum ex facere incidunt maiores, nostrum odit pariatur quis quos rem sapiente veniam? Molestiae nesciunt quod recusandae!
+    </span>
+</div>
+</body>
+</html>

@@ -16,11 +16,11 @@
         <div class="rating-wraper">
             <span class="span">I want to rate</span><br>
             <div class="sex-radio-group">
-                <input checked hidden type="radio" name="sex" id="both">
+                <input onchange="loadImage()" checked hidden type="radio" name="sex" id="both">
                 <label class="sex-radio-label both" for="both">Both</label>
-                <input hidden type="radio" name="sex" id="male">
+                <input onchange="loadImage()" hidden type="radio" name="sex" id="male">
                 <label class="sex-radio-label male" for="male">Male</label>
-                <input hidden type="radio" name="sex" id="female">
+                <input onchange="loadImage()" hidden type="radio" name="sex" id="female">
                 <label class="sex-radio-label female" for="female">Female</label>
             </div>
 

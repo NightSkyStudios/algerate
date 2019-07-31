@@ -8,7 +8,7 @@ class PostedImage(models.Model):
     unique_link = models.UUIDField(default=uuid.uuid4, editable=False)
     isVerified = models.BooleanField('Verified', default=False)
     sex = models.CharField(max_length=225, choices=[('Male', 'Male'), ('Female', 'Female')])
-    age = models.IntegerField(max_length=2)
+    age = models.IntegerField()
     email = models.CharField(max_length=64)
 
     def __str__(self):

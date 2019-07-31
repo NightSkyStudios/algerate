@@ -52,12 +52,21 @@
                 width: 1.5em;
                 height: 1.5em;
 
-                transition: background-color .3s;
+                transition: background-color .3s, color .3s;
 
                 cursor: pointer;
 
                 &:hover {
                     background-color: var(--accent-yellow);
+                }
+
+                &:disabled{
+                    background-color: var(--grey);
+                    cursor: unset;
+
+                    &:hover{
+                        background-color: var(--grey);
+                    }
                 }
             }
         }

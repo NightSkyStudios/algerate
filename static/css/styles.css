@@ -18,6 +18,7 @@ body {
   --sex-alt-both: #b9b9b9;
   --button-red: #ff6e78;
   --button-green: #a1ff8a;
+  --grey: #4a4a4a;
   --navbar-heigth: 7vh;
 }
 
@@ -484,11 +485,18 @@ textarea:focus {
   border-radius: 50%;
   width: 1.5em;
   height: 1.5em;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
   cursor: pointer;
 }
 .rating-grid .rating-wraper .rate-buttons-group .number-button:hover {
   background-color: var(--accent-yellow);
+}
+.rating-grid .rating-wraper .rate-buttons-group .number-button:disabled {
+  background-color: var(--grey);
+  cursor: unset;
+}
+.rating-grid .rating-wraper .rate-buttons-group .number-button:disabled:hover {
+  background-color: var(--grey);
 }
 .rating-grid .rating-wraper p {
   color: white;

@@ -78,6 +78,15 @@ def get_image(request, mode):
     else:
         images = PostedImage.objects.all()
 
+    rated = request.session.get('rated')
+    if rated:
+        for u in rated:
+            images = images.exclude(unique_link=u)
+
+    if not images:
+        request.session.__setitem__('uuid', 'False')
+        return HttpResponse('/static/img/no_images.png\nN/A')
+
     image = images[randint(0, len(images) - 1)]
     ratings = Rating.objects.filter(ratedImage=image)
     count = len(ratings)
@@ -96,8 +105,15 @@ def get_image(request, mode):
 
 def rate_image(request, rate):
     if int(rate) in range(1, 11):
-        image = PostedImage.objects.get(unique_link=request.session.get('uuid'))
-        print(request.session.get('uuid'))
+        uuid = request.session.get('uuid')
+
+        image = PostedImage.objects.get(unique_link=uuid)
+        rated = request.session.get('rated')
+        if rated:
+            rated.append(uuid)
+            request.session.__setitem__('rated', rated)
+        else:
+            request.session.__setitem__('rated', [uuid])
         request.session.__delitem__('uuid')
         Rating.objects.create(ratedImage=image, rating=rate)
     else:
@@ -123,7 +139,6 @@ def submit_photo(request):
         age = request.POST.get('age')
         sex = request.POST.get('sex')
         image = request.FILES['file']
-        # print(f)
         instance = PostedImage.objects.create(email=email,
                                    age=age,
                                    sex=sex,
@@ -131,3 +146,8 @@ def submit_photo(request):
         instance.save()
 
     return render(request, 'submit_photo.html')
+
+
+def no_images(request):
+
+    return render(request, 'no_images.html')

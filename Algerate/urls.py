@@ -30,7 +30,8 @@ urlpatterns = [
     path('verify/', views.verified_page, name='verified'),
     path('get_image/mode=<int:mode>', views.get_image, name='get_image'),
     path('rate_image/<int:rate>', views.rate_image, name='rate_image'),
-    path('submit_photo/', views.submit_photo, name='submit_photo')
+    path('submit_photo/', views.submit_photo, name='submit_photo'),
+    path('no_images/', views.no_images, name='no_images')
 ]
 
 if settings.DEBUG:
