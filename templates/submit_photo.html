@@ -29,7 +29,7 @@
                     <label class="basic-label" for="email">Email address</label>
                     <input required type="email" name="email" id="email" placeholder="youremail@example.com">
                     <label class="basic-label" for="age">Age</label>
-                    <input required type="number" name="age" id="age" placeholder="Age">
+                    <input pattern="1[6-9]|2[0-5]" required type="text" name="age" id="age" placeholder="Age">
                     <br>
                     <div class="sex-radio-group">
                         <span>I'm</span>
@@ -53,7 +53,7 @@
                     <div class="file-load-group">
                         <input required class="inputfile" type="file" name="file" id="file" onchange="readURL(this)">
                         <span>Load you photo here</span>
-                        <label for="file">Load</label>
+                        <label for="file">Choose your photo</label>
                     </div>
                     <input class="round-button" type="submit" value="Submit">
                 </div>
