@@ -70,11 +70,11 @@ def verified_page(request):
 
 def get_image(request, mode):
     if mode == 0:
-        images = PostedImage.objects.all()
+        images = PostedImage.objects.filter(isVerified=True)
     elif mode == 1:
-        images = PostedImage.objects.filter(sex='Male')
+        images = PostedImage.objects.filter(sex='Male', isVerified=True)
     elif mode == 2:
-        images = PostedImage.objects.filter(sex='Female')
+        images = PostedImage.objects.filter(sex='Female', isVerified=True)
     else:
         images = PostedImage.objects.all()
 
