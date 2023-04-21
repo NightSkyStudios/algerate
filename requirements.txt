@@ -3,4 +3,4 @@ django-bitly==1.2.0
 Pillow==6.2.0
 pytz==2019.1
 requests==2.22.0
-sqlparse==0.3.0
+sqlparse==0.4.4
